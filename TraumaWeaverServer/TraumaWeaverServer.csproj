@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="HarmonyX" Version="2.10.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="DedicatedServer, Version=0.17.11.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\.steam\steam\steamapps\common\Barotrauma\DedicatedServer-nstrip.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+    </ItemGroup>
+
+</Project>

@@ -4,18 +4,17 @@
         <OutputType>Library</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <EnableDynamicLoading>true</EnableDynamicLoading>
+        <RootNamespace>TraumaWeaver</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="HarmonyX" Version="2.8.0" />
+      <PackageReference Include="HarmonyX" Version="2.10.0" />
       <PackageReference Include="Mono.Cecil" Version="0.11.4" />
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="DedicatedServer, Version=0.15.23.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\HolyTraumaGrail\bin\Debug\netcoreapp3.1\DedicatedServer-nstrip.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
+      <ProjectReference Include="..\TraumaWeaverClient\TraumaWeaverClient.csproj" />
+      <ProjectReference Include="..\TraumaWeaverServer\TraumaWeaverServer.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraumaWeaver", "TraumaWeaver.csproj", "{9531E183-CFA3-46DF-99A6-6D8311417709}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraumaWeaverLoader", "TraumaWeaverLoader\TraumaWeaverLoader.csproj", "{9531E183-CFA3-46DF-99A6-6D8311417709}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraumaWeaverClient", "TraumaWeaverClient\TraumaWeaverClient.csproj", "{C83B989B-F2AD-4456-831B-52BF88FDCF29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraumaWeaverServer", "TraumaWeaverServer\TraumaWeaverServer.csproj", "{F11A1C18-AF55-47B7-A0B1-43BAB201331D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraumaWeaverLauncher", "TraumaWeaverLauncher\TraumaWeaverLauncher.csproj", "{7A3E98DA-CC7E-48F1-9EBF-909C46031E96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +18,17 @@ Global
 		{9531E183-CFA3-46DF-99A6-6D8311417709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9531E183-CFA3-46DF-99A6-6D8311417709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9531E183-CFA3-46DF-99A6-6D8311417709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83B989B-F2AD-4456-831B-52BF88FDCF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83B989B-F2AD-4456-831B-52BF88FDCF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83B989B-F2AD-4456-831B-52BF88FDCF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83B989B-F2AD-4456-831B-52BF88FDCF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F11A1C18-AF55-47B7-A0B1-43BAB201331D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11A1C18-AF55-47B7-A0B1-43BAB201331D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11A1C18-AF55-47B7-A0B1-43BAB201331D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11A1C18-AF55-47B7-A0B1-43BAB201331D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A3E98DA-CC7E-48F1-9EBF-909C46031E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A3E98DA-CC7E-48F1-9EBF-909C46031E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A3E98DA-CC7E-48F1-9EBF-909C46031E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A3E98DA-CC7E-48F1-9EBF-909C46031E96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,33 +1,14 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Runtime.Loader;
+using System.Runtime.CompilerServices;
 using Barotrauma;
 using HarmonyLib;
 
-
-[SuppressMessage("ReSharper", "UnusedType.Global")]
-[SuppressMessage("ReSharper", "CheckNamespace")]
-[SuppressMessage("ReSharper", "UnusedMember.Global")]
-internal class StartupHook
-{
-    public static void Initialize()
-    {
-        if (Assembly.GetEntryAssembly()?.GetName().Name != "DedicatedServer") return;
-        
-        AssemblyLoadContext.Default.Resolving += SharedHostPolicy.SharedAssemblyResolver.LoadAssemblyFromSharedLocation;
-        TraumaWeaver.Utils.AssemblyLoadPathHelper("0Harmony.dll");
-        TraumaWeaver.Utils.AssemblyLoadPathHelper("Mono.Cecil.dll");
-        TraumaWeaver.Utils.AssemblyLoadPathHelper("MonoMod.RuntimeDetour.dll");
-        TraumaWeaver.Utils.AssemblyLoadPathHelper("MonoMod.Utils.dll");
-        TraumaWeaver.MainPatcher.doHarmony();
-    }
-}
-
-namespace TraumaWeaver
+[assembly: IgnoresAccessChecksTo("DedicatedServer.dll")]
+namespace TraumaWeaverServer
 {
 
     public static class MainPatcher
@@ -41,19 +22,12 @@ namespace TraumaWeaver
                           transpiler: new HarmonyMethod(typeof(Patches), nameof(Patches.MainTranspiler)));
         }
     }
-    public static class Utils
-    {
-        public static Assembly AssemblyLoadPathHelper(string assemblyName)
-        {
-            return AssemblyLoadContext.Default.LoadFromAssemblyPath(Directory.GetCurrentDirectory() + "/" + assemblyName);
-        }
-    }
-    
+
     public class Hooks
     {
         public static void onMain()
         {
-            Console.WriteLine("TraumaWeaver " + Assembly.GetExecutingAssembly().GetName().Version + " Loaded");
+            Console.WriteLine("TraumaWeaverServer " + Assembly.GetExecutingAssembly().GetName().Version + " Loaded");
             Console.WriteLine("Loading mods...");
             DirectoryInfo serverDllMods = Directory.CreateDirectory("ServerDllMods");
             var mods = serverDllMods.EnumerateFiles();
@@ -91,18 +65,6 @@ namespace TraumaWeaver
             {
                 Console.WriteLine("Cannot find Program.Main");
             }
-        }
-    }
-}
-
-namespace SharedHostPolicy
-{
-    internal static class SharedAssemblyResolver
-    {
-        public static Assembly LoadAssemblyFromSharedLocation(AssemblyLoadContext context, AssemblyName assemblyName)
-        {
-            string sharedAssemblyPath = Directory.GetCurrentDirectory(); // find assemblyName in shared location...
-            return sharedAssemblyPath != null ? AssemblyLoadContext.Default.LoadFromAssemblyPath(sharedAssemblyPath) : null;
         }
     }
 }

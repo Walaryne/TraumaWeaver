@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Barotrauma, Version=0.17.12.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\.steam\steam\steamapps\common\Barotrauma\Barotrauma-nstrip.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="MonoGame.Framework.Linux.NetStandard, Version=3.7.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\.steam\steam\steamapps\common\Barotrauma\MonoGame.Framework.Linux.NetStandard.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="XNATypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\.steam\steam\steamapps\common\Barotrauma\XNATypes.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="HarmonyX" Version="2.10.0" />
+    </ItemGroup>
+
+</Project>
