@@ -9,7 +9,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="DedicatedServer, Version=0.17.11.0, Culture=neutral, PublicKeyToken=null">
+      <Reference Include="DedicatedServer, Version=0.18.15.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\.steam\steam\steamapps\common\Barotrauma\DedicatedServer-nstrip.dll</HintPath>
         <Private>False</Private>
       </Reference>

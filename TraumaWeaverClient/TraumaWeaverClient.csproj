@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="Barotrauma, Version=0.17.12.0, Culture=neutral, PublicKeyToken=null">
+      <Reference Include="Barotrauma, Version=0.18.15.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\.steam\steam\steamapps\common\Barotrauma\Barotrauma-nstrip.dll</HintPath>
         <Private>False</Private>
       </Reference>
