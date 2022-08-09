@@ -8,6 +8,7 @@ using Barotrauma;
 using HarmonyLib;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoMod.Cil;
 
 [assembly: IgnoresAccessChecksTo("Barotrauma")]
 namespace TraumaWeaverClient
@@ -25,6 +26,8 @@ namespace TraumaWeaverClient
                           transpiler: new HarmonyMethod(typeof(Patches), nameof(Patches.MainTranspiler)));
             harmony.Patch(AccessTools.Method(typeof(MainMenuScreen), nameof(MainMenuScreen.Draw)),
                           transpiler: new HarmonyMethod(typeof(Patches), nameof(Patches.MainMenuScreenTranspiler)));
+            harmony.Patch(AccessTools.EnumeratorMoveNext(AccessTools.Method(typeof(GameMain), nameof(GameMain.Load))),
+                          ilmanipulator: new HarmonyMethod(typeof(Patches), nameof(Patches.AnalyticsDisabler)));
         }
 
         private static Assembly ResolveHandler(object o, ResolveEventArgs args)
@@ -107,6 +110,15 @@ namespace TraumaWeaverClient
             {
                 Console.WriteLine("Cannot find String.Concat");
             }
+        }
+
+        public static void AnalyticsDisabler(ILContext ctx)
+        {
+            ILCursor c = new ILCursor(ctx);
+
+            c.GotoNext(x => x.MatchCall(typeof(GameAnalyticsManager), nameof(GameAnalyticsManager.InitIfConsented)));
+
+            c.Remove();
         }
     }
 }
