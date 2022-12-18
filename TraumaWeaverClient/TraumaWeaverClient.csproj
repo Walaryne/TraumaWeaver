@@ -1,13 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="Barotrauma, Version=0.18.15.0, Culture=neutral, PublicKeyToken=null">
+      <Reference Include="Barotrauma, Version=0.20.15.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\.steam\steam\steamapps\common\Barotrauma\Barotrauma-nstrip.dll</HintPath>
-        <Private>False</Private>
       </Reference>
       <Reference Include="MonoGame.Framework.Linux.NetStandard, Version=3.7.0.0, Culture=neutral, PublicKeyToken=null">
         <HintPath>..\..\..\.steam\steam\steamapps\common\Barotrauma\MonoGame.Framework.Linux.NetStandard.dll</HintPath>

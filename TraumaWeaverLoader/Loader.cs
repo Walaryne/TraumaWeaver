@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection;
@@ -40,7 +39,6 @@ internal class StartupHook
                 }
         }
         
-        AssemblyLoadContext.Default.Resolving += SharedHostPolicy.SharedAssemblyResolver.LoadAssemblyFromSharedLocation;
         TraumaWeaverLoader.Utils.AssemblyLoadPathHelper("0Harmony.dll");
         TraumaWeaverLoader.Utils.AssemblyLoadPathHelper("Mono.Cecil.dll");
         TraumaWeaverLoader.Utils.AssemblyLoadPathHelper("MonoMod.RuntimeDetour.dll");
@@ -77,18 +75,6 @@ namespace TraumaWeaverLoader
         public static Assembly AssemblyLoadPathHelper(string assemblyName)
         {
             return AssemblyLoadContext.Default.LoadFromAssemblyPath(Directory.GetCurrentDirectory() + "/" + assemblyName);
-        }
-    }
-}
-
-namespace SharedHostPolicy
-{
-    internal static class SharedAssemblyResolver
-    {
-        public static Assembly LoadAssemblyFromSharedLocation(AssemblyLoadContext context, AssemblyName assemblyName)
-        {
-            string sharedAssemblyPath = Directory.GetCurrentDirectory(); // find assemblyName in shared location...
-            return sharedAssemblyPath != null ? AssemblyLoadContext.Default.LoadFromAssemblyPath(sharedAssemblyPath) : null;
         }
     }
 }

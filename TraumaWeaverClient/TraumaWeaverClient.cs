@@ -29,7 +29,7 @@ namespace TraumaWeaverClient
             harmony.Patch(AccessTools.EnumeratorMoveNext(AccessTools.Method(typeof(GameMain), nameof(GameMain.Load))),
                           ilmanipulator: new HarmonyMethod(typeof(Patches), nameof(Patches.AnalyticsDisabler)));
         }
-
+        
         private static Assembly ResolveHandler(object o, ResolveEventArgs args)
         {
             if (args.Name == "MonoGame.Framework.Linux.NetStandard, Version=3.7.0.0, Culture=neutral, PublicKeyToken=null")
